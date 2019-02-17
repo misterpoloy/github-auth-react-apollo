@@ -8,7 +8,8 @@
     "react": "^16.8.2",
     "react-apollo": "^2.4.1",
     "react-dom": "^16.8.2",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "unfetch": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
