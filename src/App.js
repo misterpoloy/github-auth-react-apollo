@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import fetch from "unfetch";
+import Routes from './Routes';
 import './App.css';
 import STATUS from './constants/status';
 
@@ -67,6 +68,7 @@ class App extends Component {
        >
         Login
        </a>
+       <Routes />
       </ApolloProvider>
     );
   }
