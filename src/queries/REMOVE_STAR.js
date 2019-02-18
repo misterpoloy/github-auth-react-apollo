@@ -1,10 +1,11 @@
-import { qql } from 'apollo-boost';
+import { gql } from 'apollo-boost';
 
-export default qql`
+export default gql`
   mutation($starrableId: ID!) {
     removeStar(input: { starrableId: $starrableId }) {
       starrable {
         id
+        viewerHasStarred
       }
     }
   }

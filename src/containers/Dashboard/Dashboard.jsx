@@ -18,12 +18,14 @@ class Dashboard extends Component {
       <Query query={ GET_REPOS } variables={{ number_of_repos: max }}>
         {({ loading, error, data}) => {
           if (loading) return <div><Spin /> Loading repos...</div>;
-          if (error) return `Error! ${error.message}`;
+          if (error) {
+            return `Error! ${error.message}`
+          }
           return (
             <div>
               <h1>Explore repositories: </h1>
               {data.viewer.repositories.nodes.map(repo => (
-                <RepoCard key={repo.id} {...repo } />
+                <RepoCard max={max} key={repo.id} {...repo } />
               ))}
               <Button
                 style={{ marginTop: 25 }}

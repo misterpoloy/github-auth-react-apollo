@@ -5,6 +5,7 @@ export default gql`
     addStar(input: { starrableId: $starrableId }) {
       starrable {
         id
+        viewerHasStarred
       }
     }
   }
