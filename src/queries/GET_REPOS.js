@@ -1,9 +1,8 @@
-import { qql } from 'apollo-boost';
+import { gql } from 'apollo-boost';
 
-export default qql`
+export default gql`
 query($number_of_repos:Int!) {
   viewer {
-    name
      repositories(last: $number_of_repos) {
        nodes {
          name
