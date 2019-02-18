@@ -21,7 +21,7 @@ class Dashboard extends Component {
           if (error) return `Error! ${error.message}`;
           return (
             <div>
-              <h1>My repositories: </h1>
+              <h1>Explore repositories: </h1>
               {data.viewer.repositories.nodes.map(repo => (
                 <RepoCard key={repo.id} {...repo } />
               ))}
