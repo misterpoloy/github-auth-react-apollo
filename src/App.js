@@ -4,10 +4,9 @@ import { ApolloProvider } from 'react-apollo';
 
 import fetch from "unfetch";
 import Routes from './Routes';
-import './App.css';
 import STATUS from './constants/status';
 import { defaults, resolvers } from './constants/state';
-import Content from './components/Content/Content';
+import Layout from './components/Layout/Layout';
 
 const {
   REACT_APP_AUTH_API_URI,
@@ -67,9 +66,9 @@ class App extends Component {
     const { status } = this.state;
     return (
       <ApolloProvider client={client}>
-        <Content status={status}>
+        <Layout status={status}>
           <Routes />
-        </Content>
+        </Layout>
       </ApolloProvider>
     );
   }

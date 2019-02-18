@@ -1,6 +1,6 @@
 export const defaults = {
   user: {
-    name: false,
+    name: null,
     avatarUrl: null,
     __typename: 'user'
   },
