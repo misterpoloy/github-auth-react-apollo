@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { Layout, Menu , Avatar, Icon, Button } from 'antd';
 import { Query, Mutation } from 'react-apollo';
 // Queries
@@ -81,9 +81,16 @@ class CustomHeader extends Component {
           defaultSelectedKeys={['3']}
           style={{ lineHeight: '64px' }}
         >
-          <Menu.Item key="1">Search</Menu.Item>
-          <Menu.Item key="2">Stared</Menu.Item>
-          <Menu.Item style={{float: 'right'}} key="3">
+          <Menu.Item key="1">
+          <Link to="/">Search</Link>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <Link to="/stared">Stared</Link>
+          </Menu.Item>
+          <Menu.Item key="3">
+            <Link to="/bacon">404 page</Link>
+          </Menu.Item>
+          <Menu.Item style={{float: 'right'}} key="4">
             { this.renderLink() }
           </Menu.Item>
         </Menu>
