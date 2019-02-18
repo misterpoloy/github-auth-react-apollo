@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-import { Layout, Menu , Avatar } from 'antd';
-import { Query } from 'react-apollo';
+import { Layout, Menu , Avatar, Icon, Button } from 'antd';
+import { Query, Mutation } from 'react-apollo';
 // Queries
 import GET_USER from '../../queries/GET_USER';
 import QUERY_USER from '../../queries/QUERY_USER';
+import REMOVE_USER from '../../queries/REMOVE_USER';
 
 // Ant.design
 const { Header } = Layout;
 const { REACT_APP_CLIENT_ID, REACT_APP_REDIRECT_URI } = process.env;
+
+const Login = () => (
+  <a href={`https://github.com/login/oauth/authorize?client_id=${REACT_APP_CLIENT_ID}&scope=user%20public_repo%20gist&redirect_uri=${REACT_APP_REDIRECT_URI}`}>
+    <Icon type="login" />
+      Login
+  </a>
+);
 
 class CustomHeader extends Component {
   renderLink = () => {
@@ -19,10 +27,26 @@ class CustomHeader extends Component {
             const { name, avatarUrl } = data.user;
             if (name) {
               return (
-                <div>
-                  <Avatar size="large" src={avatarUrl} />
-                   <span> { name }</span>
-                </div>
+                <Mutation mutation={ REMOVE_USER }>
+                  {(removeUser) => (
+                    <div>
+                      <Avatar size="large" src={avatarUrl} />
+                        <span> { name } </span>
+                        <Button
+                          onClick={e => {
+                            e.preventDefault();
+                            localStorage.removeItem("github_token");
+                            removeUser();
+                          }}
+                          style={{ marginLeft: 10 }}
+                          ghost
+                        >
+                          Log out
+                          <Icon type="logout" />
+                      </Button>
+                    </div>
+                  )}
+                </Mutation>
               );
             }
             // If not local user, query
@@ -33,7 +57,7 @@ class CustomHeader extends Component {
                 {({ loading, error }) => {
                   if (loading) return <div>loading...</div>;
                   if (error) return <div>Error</div>;
-                  return null;
+                  return <Login />;
                 }}
               </Query>
             );
@@ -42,11 +66,7 @@ class CustomHeader extends Component {
       );
     }
     // If not logged
-    return (
-      <a href={`https://github.com/login/oauth/authorize?client_id=${REACT_APP_CLIENT_ID}&scope=user%20public_repo%20gist&redirect_uri=${REACT_APP_REDIRECT_URI}`}>
-        Login
-      </a>
-    );
+    return <Login />;
   }
 
   render() {

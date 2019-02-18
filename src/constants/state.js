@@ -18,5 +18,8 @@ export const resolvers = {
       };
       cache.writeData({ data });
     },
+    removeUser: (_, variables, { cache }) => {
+      cache.writeData({ data: defaults });
+    },
   }
 }
