@@ -19,6 +19,8 @@ export default props => (
       </div>
     }
     >
-    <div dangerouslySetInnerHTML={{ __html: props.descriptionHTML }} />
+    {props.descriptionHTML !== "<div></div>" ? (
+      <div dangerouslySetInnerHTML={{ __html: props.descriptionHTML }} />
+    ) : 'Repo has no description'}
   </Card>
 );

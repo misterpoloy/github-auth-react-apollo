@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 const { Content, Footer } = Layout;
 
 const styles = {
-  layout: { height: '-webkit-fill-available' },
+  layout: { minHeight: '100vh' },
 }
 export default props => (
   <Layout style={ styles.layout } className="layout">
