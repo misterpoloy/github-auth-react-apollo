@@ -11,8 +11,8 @@ class Routes extends Component {
     return (
       <HashRouter>
         <div>
-          <Route path={ routesCode.PUBLIC.LOGIN } component={Login} />
-          <Route path={ routesCode.AUTH.DASHBOARD } component={Dashboard} />
+          <Route exact path={ routesCode.PUBLIC.LOGIN } component={Login} />
+          <Route exact path={ routesCode.AUTH.DASHBOARD } component={Dashboard} />
         </div>
       </HashRouter>
     );

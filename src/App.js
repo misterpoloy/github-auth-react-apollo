@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+
 import fetch from "unfetch";
 import Routes from './Routes';
 import './App.css';
 import STATUS from './constants/status';
+import { defaults, resolvers } from './constants/state';
+import Content from './components/Content/Content';
 
 const {
-  REACT_APP_CLIENT_ID,
-  REACT_APP_REDIRECT_URI,
   REACT_APP_AUTH_API_URI,
   REACT_APP_GRAPGQL_URI
 } = process.env;
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
   uri: REACT_APP_GRAPGQL_URI,
+  clientState: {
+    defaults,
+    resolvers,
+  },
   request: operation => {
     const token = localStorage.getItem("github_token");
     if (token) {
@@ -62,13 +67,9 @@ class App extends Component {
     const { status } = this.state;
     return (
       <ApolloProvider client={client}>
-       <a
-        style={{ display: status === STATUS.INITIAL ? "inline" : "none" }}
-        href={`https://github.com/login/oauth/authorize?client_id=${REACT_APP_CLIENT_ID}&scope=user%20public_repo%20gist&redirect_uri=${REACT_APP_REDIRECT_URI}`}
-       >
-        Login
-       </a>
-       <Routes />
+        <Content status={status}>
+          <Routes />
+        </Content>
       </ApolloProvider>
     );
   }
