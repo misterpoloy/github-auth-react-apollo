@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 import { Layout, Menu , Avatar, Icon, Button } from 'antd';
 import { Query, Mutation } from 'react-apollo';
 // Queries
@@ -37,6 +38,7 @@ class CustomHeader extends Component {
                             e.preventDefault();
                             localStorage.removeItem("github_token");
                             removeUser();
+                            this.props.history.push('/login');
                           }}
                           style={{ marginLeft: 10 }}
                           ghost
@@ -90,4 +92,4 @@ class CustomHeader extends Component {
   }
 }
 
-export default CustomHeader;
+export default withRouter(CustomHeader);

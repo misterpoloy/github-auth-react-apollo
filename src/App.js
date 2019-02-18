@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+import { HashRouter } from 'react-router-dom';
 
 import fetch from "unfetch";
 import Routes from './Routes';
@@ -66,9 +67,11 @@ class App extends Component {
     const { status } = this.state;
     return (
       <ApolloProvider client={client}>
-        <Layout status={status}>
-          <Routes />
-        </Layout>
+        <HashRouter>
+          <Layout status={status}>
+            <Routes />
+          </Layout>
+        </HashRouter>
       </ApolloProvider>
     );
   }
