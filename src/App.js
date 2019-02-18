@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import { HashRouter } from 'react-router-dom';
+import { message } from 'antd';
 
 import fetch from "unfetch";
 import Routes from './Routes';
@@ -56,6 +57,7 @@ class App extends Component {
           if (token) {
             localStorage.setItem("github_token", token);
           }
+          message.success('Welcome back');
           this.setState({
             status: STATUS.FINISHED_LOADING
           });

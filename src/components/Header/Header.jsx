@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom'
-import { Layout, Menu , Avatar, Icon, Button } from 'antd';
+import { Layout, Menu , Avatar, Icon, Button, message } from 'antd';
 import { Query, Mutation } from 'react-apollo';
 // Queries
 import GET_USER from '../../queries/GET_USER';
@@ -38,6 +38,7 @@ class CustomHeader extends Component {
                             e.preventDefault();
                             localStorage.removeItem("github_token");
                             removeUser();
+                            message.success('logged out');
                             this.props.history.push('/login');
                           }}
                           style={{ marginLeft: 10 }}
@@ -71,6 +72,12 @@ class CustomHeader extends Component {
     return <Login />;
   }
 
+  checkifLogged = () => {
+    if (!localStorage.getItem("github_token")) {
+      message.warning('You need to login first');
+    }
+  }
+
   render() {
     return (
       <Header>
@@ -82,10 +89,10 @@ class CustomHeader extends Component {
           style={{ lineHeight: '64px' }}
         >
           <Menu.Item key="1">
-          <Link to="/">Search</Link>
+          <Link onClick={this.checkifLogged} to="/">Search</Link>
           </Menu.Item>
           <Menu.Item key="2">
-            <Link to="/stared">Stared</Link>
+            <Link onClick={this.checkifLogged} to="/stared">Stared</Link>
           </Menu.Item>
           <Menu.Item key="3">
             <Link to="/bacon">404 page</Link>

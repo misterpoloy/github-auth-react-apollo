@@ -11,12 +11,14 @@ export default props => (
   <Layout style={ styles.layout } className="layout">
     <Header />
     <Content style={{ padding: '0 50px' }}>
-      <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+      <div style={{ padding: 24, minHeight: '80vh' }}>
         { props.children }
       </div>
     </Content>
     <Footer style={{ textAlign: 'center' }}>
-      Juan Pablo Ortiz 2019 CodeChallenge for DevianArt
+      <a href="http://juanpablo.xyz">juanpablo.xyz </a>
+      | 2019 | 
+      <a href="https://twitter.com/janpoloy"> @janpoloy</a>
     </Footer>
   </Layout>
 );
