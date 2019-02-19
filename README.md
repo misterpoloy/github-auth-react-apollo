@@ -32,7 +32,8 @@ Because of some security-related limitations, Github prevents you from implement
 - Start `npm start`
 
 ## Screenshots
-![Screenshots](https://image.ibb.co/gCm2aL/Give-Feedback-Landing.png)
+![Screenshots](https://i.ibb.co/DwT73qv/2.png)
+![Screenshots](https://i.ibb.co/p480cZL/1.png)
 
 ## Helpful documentation:
 - [Github API](https://developer.github.com/v4/guides/forming-calls/#authenticating-with-graphql)
