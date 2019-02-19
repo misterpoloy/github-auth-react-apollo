@@ -1,4 +1,42 @@
+# Star your repositories on Github
+## Code Challenge
+### Brief
+Create a web app which enables a user to view repositories they have starred, search for and star new repositories, and un-star repositories.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+**live demo!** ->
+https://scstar.herokuapp.com/
+
+## Stack
+![Apollo](https://cdn-images-1.medium.com/max/800/1*0HP2je9Tcm-64J4S-lQSgA.png)
+
+- [React](https://github.com/facebook/create-react-app)
+- [Apollo](https://www.apollographql.com/)
+- [GraphQL](https://graphql.org/)
+- [Apollo link (instead of redux)](https://www.apollographql.com/docs/link/links/state.html)
+- [Gatekeeper](https://github.com/prose/gatekeeper#deploy-on-heroku)
+- [Ant.design](https://ant.design/)
+- [Jest for testing](https://jestjs.io/index.html)
+- [Eslint and Prettier](https://prettier.io/docs/en/eslint.html)
+
+## How to start
+- Clone the repo
+- Install the dependencies:
+`npm install`
+
+Because of some security-related limitations, Github prevents you from implementing the OAuth Web Application Flow on a client-side only application.
+- Create a [Gatekeeper](https://github.com/prose/gatekeeper#deploy-on-heroku) for manage Githubb Token and code 
+- copy the **.env** vars with your Github Auth App, Gatekeeper credentials.
+- Start `npm start`
+
+## Screenshots
+![Screenshots](https://image.ibb.co/gCm2aL/Give-Feedback-Landing.png)
+
+## Helpful documentation:
+- [Github API](https://developer.github.com/v4/guides/forming-calls/#authenticating-with-graphql)
+- [Github Auth flow](https://www.graphql.college/implementing-github-oauth-flow/)
 
 ## Available Scripts
 
@@ -27,8 +65,3 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### TODOS
-
-- Add a spinner on loading user info when login
-- Fix navbar active menu element
-- Fix responsive
