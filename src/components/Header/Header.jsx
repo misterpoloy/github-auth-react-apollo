@@ -6,7 +6,8 @@ import { Query, Mutation } from 'react-apollo';
 import GET_USER from '../../queries/GET_USER';
 import QUERY_USER from '../../queries/QUERY_USER';
 import REMOVE_USER from '../../queries/REMOVE_USER';
-
+// constants
+import routesCode from '../../constants/routes';
 // Ant.design
 const { Header } = Layout;
 const { REACT_APP_CLIENT_ID, REACT_APP_REDIRECT_URI } = process.env;
@@ -78,6 +79,21 @@ class CustomHeader extends Component {
     }
   }
 
+  selectedKey = () => {
+    const { history } = this.props
+    switch (history.location.pathname) {
+      case routesCode.AUTH.DASHBOARD:
+        return '1';
+      case routesCode.AUTH.STARED:
+        return '2';
+      case routesCode.PUBLIC.LOGIN:
+        return '4';
+      default:
+        // Return the default for add fedback / routes / etc
+        return '3'
+    }
+  }
+
   render() {
     return (
       <Header>
@@ -85,7 +101,7 @@ class CustomHeader extends Component {
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['3']}
+          defaultSelectedKeys={[ this.selectedKey() ]}
           style={{ lineHeight: '64px' }}
         >
           <Menu.Item key="1">
