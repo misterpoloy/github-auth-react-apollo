@@ -32,8 +32,8 @@ class CustomHeader extends Component {
                 <Mutation mutation={ REMOVE_USER }>
                   {(removeUser) => (
                     <div>
-                      <Avatar size="large" src={avatarUrl} />
-                        <span> { name } </span>
+                      <Avatar className="hideMobile" size="large" src={avatarUrl} />
+                        <span className="hideMobile"> { name } </span>
                         <Button
                           onClick={e => {
                             e.preventDefault();
@@ -110,7 +110,7 @@ class CustomHeader extends Component {
           <Menu.Item key="2">
             <Link onClick={this.checkifLogged} to="/stared">Stared</Link>
           </Menu.Item>
-          <Menu.Item key="3">
+          <Menu.Item className="hideMobile" key="3">
             <Link to="/bacon">404 page</Link>
           </Menu.Item>
           <Menu.Item style={{float: 'right'}} key="4">

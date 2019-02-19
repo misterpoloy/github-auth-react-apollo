@@ -9,7 +9,7 @@ class Login extends Component {
       }
       return (
         <Row>
-          <Col span={12} offset={6}>
+          <Col sm={{ span: 12, offset: 0 }} lg={{ span: 12, offset: 6 }}>
           <h1 style={{ textAlign: 'center' }}>
             Welcome to Source Control <span aria-label="Star" role="img">⭐</span>
           </h1>
